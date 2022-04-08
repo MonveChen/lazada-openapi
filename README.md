@@ -7,7 +7,7 @@ A lazada openapi sdk, currently there is only sdk about im part
 ```typescript
 import "base-class-fuction-extend" //import it first
 
-lazada.setAppConfig({ app_key: process.env.APP_KEY, app_secret: process.env.APP_SECRET })
+lazada.setAppConfig({ app_key: 108334, app_secret: "ZKpigRItsXvnImXfLzuKliOTByAOUhsZ" })
 
 //授权
 const res = await lazada.token_create({ code: '0_108334_gr0GkF1EuYdpvrIbqAD6pU7J5318' })
@@ -53,3 +53,4 @@ e.g.
     }, ExtraRes & { data: { message_id: string, template_id: number, current_time: number } }
   >
 ```
+
