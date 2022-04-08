@@ -1,6 +1,6 @@
 {
   "name": "lazada-openapi",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "lazada open api sdk",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MonveChen/base-class-fuction-extend.git"
+    "url": "git+https://github.com/MonveChen/lazada-openapi.git"
   },
   "keywords": [
     "lazada",
@@ -29,9 +29,9 @@
   "author": "Monve",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/MonveChen/base-class-fuction-extend/issues"
+    "url": "https://github.com/MonveChen/lazada-openapi/issues"
   },
-  "homepage": "https://github.com/MonveChen/base-class-fuction-extend#readme",
+  "homepage": "https://github.com/MonveChen/lazada-openapi#readme",
   "dependencies": {
     "axios": "^0.26.1"
   },

@@ -3,7 +3,7 @@
  * @Date: 2021-11-02 11:40:16
  * @LastEditors: Monve
  * @LastEditTime: 2021-12-10 18:22:10
- * @FilePath: /base-class-fuction-extend/scripts/version-add.js
+ * @FilePath: /lazada-openapi/scripts/version-add.js
  */
 
 const execSync = require('child_process').execSync
