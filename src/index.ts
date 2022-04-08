@@ -2,8 +2,8 @@
  * @Author: Monve
  * @Date: 2022-03-10 11:46:01
  * @LastEditors: Monve
- * @LastEditTime: 2022-04-08 10:36:54
- * @FilePath: /lazada-openapi/src/lazada.ts
+ * @LastEditTime: 2022-04-08 16:24:14
+ * @FilePath: /lazada-openapi/src/index.ts
  */
 
 import { BASE_URL } from "./utils/const"
@@ -17,7 +17,7 @@ type BASEURL_TYPE = 'sg' | 'th' | 'my' | 'vn' | 'ph' | 'id'
 interface AUTH_RES {
   access_token: string, refresh_token: string, country: string, refresh_expires_in: number,
   account_platform: string, expires_in: number, account: string,
-  country_user_info: { country: string, seller_id: string, user_id: number }[]
+  country_user_info: { country: string, seller_id: string, user_id: number, short_code: string }[]
 }
 
 type ExtraRes = { success: boolean, err_code: string, err_message?: string }

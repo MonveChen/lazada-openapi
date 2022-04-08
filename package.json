@@ -1,6 +1,6 @@
 {
   "name": "lazada-openapi",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "lazada open api sdk",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
