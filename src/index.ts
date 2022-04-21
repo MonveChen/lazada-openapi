@@ -2,7 +2,7 @@
  * @Author: Monve
  * @Date: 2022-03-10 11:46:01
  * @LastEditors: Monve
- * @LastEditTime: 2022-04-08 17:12:42
+ * @LastEditTime: 2022-04-21 13:35:24
  * @FilePath: /lazada-openapi/src/index.ts
  */
 
@@ -12,7 +12,7 @@ import { signRequest } from "./utils/sign"
 
 interface CONFIG { app_key: string | number, app_secret: string }
 
-type BASEURL_TYPE = 'sg' | 'th' | 'my' | 'vn' | 'ph' | 'id'
+export type BASEURL_TYPE = 'sg' | 'th' | 'my' | 'vn' | 'ph' | 'id'
 
 interface AUTH_RES {
   access_token: string, refresh_token: string, country: string, refresh_expires_in: number,
