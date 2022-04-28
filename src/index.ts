@@ -2,7 +2,7 @@
  * @Author: Monve
  * @Date: 2022-03-10 11:46:01
  * @LastEditors: Monve
- * @LastEditTime: 2022-04-21 13:35:24
+ * @LastEditTime: 2022-04-28 17:56:15
  * @FilePath: /lazada-openapi/src/index.ts
  */
 
@@ -123,7 +123,7 @@ class LazadaOpenApi {
     { baseUrl_type: BASEURL_TYPE, access_token: string, start_time: number, last_session_id?: string, page_size: number },
     ExtraRes & {
       data: {
-        has_more: boolean, next_start_time: string, last_session_id: string,
+        has_more: boolean, next_start_time: number, last_session_id: string,
         session_list: {
           session_id: string, summary: string, title: string,
           head_url: string, last_message_id: string, last_message_time: number,
