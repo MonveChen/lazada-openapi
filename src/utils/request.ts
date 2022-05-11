@@ -2,14 +2,14 @@
  * @Author: Monve
  * @Date: 2021-09-26 18:11:06
  * @LastEditors: Monve
- * @LastEditTime: 2022-05-11 17:47:25
+ * @LastEditTime: 2022-05-11 18:04:47
  * @FilePath: /lazada-openapi/src/utils/request.ts
  */
 import axios, { AxiosRequestConfig, AxiosResponse, Method } from "axios";
 
 
 
-export const axios_service = axios.create({ timeout: 15000 })
+export const axios_service = axios.create()
 
 type BaseRes = { code: string, request_id: string }
 

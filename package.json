@@ -1,6 +1,6 @@
 {
   "name": "lazada-openapi",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "lazada open api sdk",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,7 +14,8 @@
     "build": "rm -rf ./dist && ./node_modules/.bin/tsc",
     "prepare": "husky install",
     "link": "npm run build && npm link",
-    "publish": "npm run build && npm publish --access public"
+    "publish": "npm run build && npm publish --access=public && npm run sync_taobao",
+    "sync_taobao": "cnpm sync $npm_package_name"
   },
   "repository": {
     "type": "git",
