@@ -2,7 +2,7 @@
  * @Author: Monve
  * @Date: 2022-04-08 10:52:47
  * @LastEditors: Monve
- * @LastEditTime: 2022-04-08 14:25:55
+ * @LastEditTime: 2022-05-11 17:47:51
  * @FilePath: /lazada-openapi/src/test.ts
  */
 
@@ -16,17 +16,17 @@ const main = async () => {
 
   lazada.setAppConfig({ app_key: process.env.APP_KEY, app_secret: process.env.APP_SECRET })
 
-  // //授权
-  // const res = await lazada.token_create({ code: '0_108334_gr0GkF1EuYdpvrIbqAD6pU7J5318' })
-  // console.log(res.data.access_token)
+  //授权
+  const res = await lazada.token_create({ code: '0_108334_ze36fSDB7itshb9ZZpjpx9TN977' }, { timeout: 30000 })
+  console.log(res.data.access_token)
 
-  // 获取会话列表
-  const access_token = '50000601317sMk1gvHhri0OdBgbUg18cf3b17luyEHkRmvmrtEDXBtxFuGZ3Bv0z'
-  const res2 = await lazada.get_session_list({
-    access_token, baseUrl_type: 'th',
-    start_time: new Date().valueOf(), page_size: 20
-  })
-  console.log(JSON.stringify(res2.data))
+  // // 获取会话列表
+  // const access_token = '50000601317sMk1gvHhri0OdBgbUg18cf3b17luyEHkRmvmrtEDXBtxFuGZ3Bv0z'
+  // const res2 = await lazada.get_session_list({
+  //   access_token, baseUrl_type: 'th',
+  //   start_time: new Date().valueOf(), page_size: 20
+  // })
+  // console.log(JSON.stringify(res2.data))
   // const res3 = await lazada.get_session({
   //   baseUrl_type: 'th', access_token, session_id: '100191276347_2_100208742287_1_103'
   // })

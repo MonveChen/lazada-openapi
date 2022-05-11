@@ -18,26 +18,18 @@ const access_token = '50000601317sMk1gvHhri0OdBgbUg18cf3b17luyEHkRmvmrtEDXBtxFuG
 const res2 = await lazada.get_session_list({
   access_token, baseUrl_type: 'th',
   start_time: new Date().valueOf(), page_size: 20
-})
+},{ timeout: 60000 })
 ```
 
+##### 更多例子
 
+<https://github.com/MonveChen/lazada-openapi/blob/main/src/test.ts>
 
-##### 更多例子：
+##### 官方接口文档
 
-https://github.com/MonveChen/lazada-openapi/blob/main/src/test.ts
-
-
-
-##### 官方接口文档：
-
-https://www.yuque.com/docs/share/4e96d682-b1be-42a6-a67a-fbf0a7317d00?#
-
-
+<https://www.yuque.com/docs/share/4e96d682-b1be-42a6-a67a-fbf0a7317d00>?#
 
 目前仅有im相关的接口，希望更多的人加入([如何加入](https://www.zhihu.com/question/39721968?from=profile_question_card))，一起为该开源sdk做出贡献([源码](https://www.zhihu.com/question/39721968?from=profile_question_card))
-
-
 
 该项目由typescript编写，新接口参照[原有装饰器编写的接口](https://github.com/MonveChen/lazada-openapi/blob/main/src/index.ts)填充即可，
 
@@ -53,4 +45,3 @@ e.g.
     }, ExtraRes & { data: { message_id: string, template_id: number, current_time: number } }
   >
 ```
-
