@@ -2,7 +2,7 @@
  * @Author: Monve
  * @Date: 2022-03-10 11:46:01
  * @LastEditors: Monve
- * @LastEditTime: 2022-04-28 17:56:15
+ * @LastEditTime: 2022-06-30 19:16:05
  * @FilePath: /lazada-openapi/src/index.ts
  */
 
@@ -14,10 +14,11 @@ interface CONFIG { app_key: string | number, app_secret: string }
 
 export type BASEURL_TYPE = 'sg' | 'th' | 'my' | 'vn' | 'ph' | 'id'
 
+type COUNTRY_USER_INFO = { country: string, seller_id: string, user_id: string, short_code: string }
 interface AUTH_RES {
   access_token: string, refresh_token: string, country: string, refresh_expires_in: number,
   account_platform: string, expires_in: number, account: string,
-  country_user_info: { country: string, seller_id: string, user_id: string, short_code: string }[]
+  country_user_info: COUNTRY_USER_INFO[]
 }
 
 type ExtraRes = { success: boolean, err_code: string, err_message?: string }
@@ -66,7 +67,7 @@ class LazadaOpenApi {
   token_create!: ApiMethod<{ code: string }, AUTH_RES>
 
   @Post({ baseURL: BASE_URL.auth, url: '/auth/token/refresh' })
-  token_refresh!: ApiMethod<{ refresh_token: string }, AUTH_RES>
+  token_refresh!: ApiMethod<{ refresh_token: string }, Omit<AUTH_RES & { country_user_info_list: COUNTRY_USER_INFO }, 'country_user_info'>>
 
   //im https://www.yuque.com/docs/share/4e96d682-b1be-42a6-a67a-fbf0a7317d00?#
   //Messages
