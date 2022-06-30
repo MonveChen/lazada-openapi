@@ -2,7 +2,7 @@
  * @Author: Monve
  * @Date: 2022-03-10 11:46:01
  * @LastEditors: Monve
- * @LastEditTime: 2022-06-30 19:16:05
+ * @LastEditTime: 2022-06-30 19:22:21
  * @FilePath: /lazada-openapi/src/index.ts
  */
 
@@ -67,7 +67,7 @@ class LazadaOpenApi {
   token_create!: ApiMethod<{ code: string }, AUTH_RES>
 
   @Post({ baseURL: BASE_URL.auth, url: '/auth/token/refresh' })
-  token_refresh!: ApiMethod<{ refresh_token: string }, Omit<AUTH_RES & { country_user_info_list: COUNTRY_USER_INFO }, 'country_user_info'>>
+  token_refresh!: ApiMethod<{ refresh_token: string }, Omit<AUTH_RES & { country_user_info_list: COUNTRY_USER_INFO[] }, 'country_user_info'>>
 
   //im https://www.yuque.com/docs/share/4e96d682-b1be-42a6-a67a-fbf0a7317d00?#
   //Messages
