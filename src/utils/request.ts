@@ -2,7 +2,7 @@
  * @Author: Monve
  * @Date: 2021-09-26 18:11:06
  * @LastEditors: Monve
- * @LastEditTime: 2022-05-11 18:04:47
+ * @LastEditTime: 2022-08-29 14:16:23
  * @FilePath: /lazada-openapi/src/utils/request.ts
  */
 import axios, { AxiosRequestConfig, AxiosResponse, Method } from "axios";
@@ -42,3 +42,5 @@ export function createApiByMethod(method: Method) {
 
 export const Get = createApiByMethod('get')
 export const Post = createApiByMethod('post')
+
+export type ExtraRes = { success: boolean, err_code: string, err_message?: string }

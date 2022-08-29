@@ -2,7 +2,7 @@
  * @Author: Monve
  * @Date: 2022-04-01 19:00:11
  * @LastEditors: Monve
- * @LastEditTime: 2022-04-06 14:25:08
+ * @LastEditTime: 2022-08-29 14:16:38
  * @FilePath: /lazada-openapi/src/utils/const.ts
  */
 
@@ -16,3 +16,5 @@ export const BASE_URL = Object.freeze({
   id: 'https://api.lazada.co.id/rest',
   auth: 'https://auth.lazada.com/rest',
 })
+
+export type BaseUrlKey = keyof (typeof BASE_URL)
