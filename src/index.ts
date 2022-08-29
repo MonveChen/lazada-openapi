@@ -2,10 +2,11 @@
  * @Author: Monve
  * @Date: 2022-03-10 11:46:01
  * @LastEditors: Monve
- * @LastEditTime: 2022-08-29 14:15:04
+ * @LastEditTime: 2022-08-29 18:23:25
  * @FilePath: /lazada-openapi/src/index.ts
  */
 
+import { ChatApi } from "./chat"
 import { BaseUrlKey, BASE_URL } from "./utils/const"
 import { ApiMethod, axios_service, Get, Post } from "./utils/request"
 import { signRequest } from "./utils/sign"
@@ -22,6 +23,7 @@ interface AUTH_RES {
 class LazadaOpenApi {
   private app_key: string
   private app_secret: string
+  public chat = new ChatApi()
   constructor() {
     axios_service.interceptors.request.use(
       (config) => {
