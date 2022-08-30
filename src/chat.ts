@@ -2,7 +2,7 @@
  * @Author: Monve
  * @Date: 2022-08-29 14:04:27
  * @LastEditors: Monve
- * @LastEditTime: 2022-08-29 14:16:31
+ * @LastEditTime: 2022-08-30 16:46:43
  * @FilePath: /lazada-openapi/src/chat.ts
  */
 
@@ -44,7 +44,7 @@ export class ChatApi {
    * promotion_id: template_id=10008优惠券消息
    */
   @Post({ url: '/im/message/send' })
-  send_messages!: ApiMethod<
+  send_message!: ApiMethod<
     {
       baseUrl_type: BaseUrlKey, access_token: string, template_id: number, session_id: string,
       txt?: string, img_url?: string, width?: number, height?: number,

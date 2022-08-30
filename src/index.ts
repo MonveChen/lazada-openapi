@@ -2,7 +2,7 @@
  * @Author: Monve
  * @Date: 2022-03-10 11:46:01
  * @LastEditors: Monve
- * @LastEditTime: 2022-08-29 18:23:25
+ * @LastEditTime: 2022-08-29 18:34:33
  * @FilePath: /lazada-openapi/src/index.ts
  */
 
