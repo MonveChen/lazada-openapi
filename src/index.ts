@@ -2,14 +2,17 @@
  * @Author: Monve
  * @Date: 2022-03-10 11:46:01
  * @LastEditors: Monve
- * @LastEditTime: 2022-08-29 18:34:33
+ * @LastEditTime: 2022-08-31 16:18:13
  * @FilePath: /lazada-openapi/src/index.ts
  */
 
 import { ChatApi } from "./chat"
+import { ProductApi } from "./product"
 import { BaseUrlKey, BASE_URL } from "./utils/const"
-import { ApiMethod, axios_service, Get, Post } from "./utils/request"
+import { ApiMethod, axios_service, Post, ShopReq } from "./utils/request"
 import { signRequest } from "./utils/sign"
+import * as FormData from 'form-data'
+import axios from "axios"
 
 interface CONFIG { app_key: string | number, app_secret: string }
 
@@ -24,6 +27,7 @@ class LazadaOpenApi {
   private app_key: string
   private app_secret: string
   public chat = new ChatApi()
+  public product = new ProductApi()
   constructor() {
     axios_service.interceptors.request.use(
       (config) => {
@@ -52,6 +56,21 @@ class LazadaOpenApi {
         Promise.reject(error)
       }
     )
+
+    this.product.upload_image = ({ baseUrl_type, access_token, image }: { image: FormData } & ShopReq) => {
+      const url = '/image/upload'
+      const timestamp = Date.now()
+      const data = {
+        app_key: this.app_key, timestamp,
+        sign_method: 'sha256', access_token
+      }
+      const sign = signRequest(this.app_secret, url, data)
+      return axios.post(url, image, {
+        baseURL: BASE_URL[baseUrl_type],
+        params: { ...data, sign },
+        headers: { ...image.getHeaders() }
+      })
+    }
   }
 
   setAppConfig = ({ app_key, app_secret }: CONFIG) => {

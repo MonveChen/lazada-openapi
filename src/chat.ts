@@ -2,12 +2,11 @@
  * @Author: Monve
  * @Date: 2022-08-29 14:04:27
  * @LastEditors: Monve
- * @LastEditTime: 2022-08-30 16:46:43
+ * @LastEditTime: 2022-08-31 14:27:02
  * @FilePath: /lazada-openapi/src/chat.ts
  */
 
-import { BaseUrlKey } from "./utils/const"
-import { ApiMethod, ExtraRes, Get, Post } from "./utils/request"
+import { ApiShopMethod, ExtraRes, Get, Post } from "./utils/request"
 
 
 export class ChatApi {
@@ -20,8 +19,8 @@ export class ChatApi {
    * translatText may not exist
    */
   @Get({ url: '/im/message/list' })
-  get_messages!: ApiMethod<{
-    baseUrl_type: BaseUrlKey, access_token: string, session_id: string, start_time: number,
+  get_messages!: ApiShopMethod<{
+    session_id: string, start_time: number,
     last_message_id?: string, page_size: number
   }, ExtraRes & {
     data: {
@@ -44,17 +43,17 @@ export class ChatApi {
    * promotion_id: template_id=10008优惠券消息
    */
   @Post({ url: '/im/message/send' })
-  send_message!: ApiMethod<
+  send_message!: ApiShopMethod<
     {
-      baseUrl_type: BaseUrlKey, access_token: string, template_id: number, session_id: string,
+      template_id: number, session_id: string,
       txt?: string, img_url?: string, width?: number, height?: number,
       item_id?: string, order_id?: string, promotion_id?: string
     }, ExtraRes & { data: { message_id: string, template_id: number, current_time: number } }
   >
 
   @Post({ url: '/im/message/recall' })
-  recall_messages!: ApiMethod<
-    { baseUrl_type: BaseUrlKey, access_token: string, session_id: string, message_id: string },
+  recall_messages!: ApiShopMethod<
+    { session_id: string, message_id: string },
     ExtraRes
   >
 
@@ -62,8 +61,8 @@ export class ChatApi {
    * site_id e.g. 'SG'
    */
   @Get({ url: '/im/session/list' })
-  get_session_list!: ApiMethod<
-    { baseUrl_type: BaseUrlKey, access_token: string, start_time: number, last_session_id?: string, page_size: number },
+  get_session_list!: ApiShopMethod<
+    { start_time: number, last_session_id?: string, page_size: number },
     ExtraRes & {
       data: {
         has_more: boolean, next_start_time: number, last_session_id: string,
@@ -78,8 +77,8 @@ export class ChatApi {
   >
 
   @Get({ url: '/im/session/get' })
-  get_session!: ApiMethod<
-    { baseUrl_type: BaseUrlKey, access_token: string, session_id: string },
+  get_session!: ApiShopMethod<
+    { session_id: string },
     ExtraRes & {
       data: {
         session_id: string, content: string, title: string,
@@ -91,8 +90,8 @@ export class ChatApi {
   >
 
   @Post({ url: '/im/session/read' })
-  set_session_read!: ApiMethod<
-    { baseUrl_type: BaseUrlKey, access_token: string, session_id: string, last_read_message_id: string },
+  set_session_read!: ApiShopMethod<
+    { session_id: string, last_read_message_id: string },
     ExtraRes
   >
 
