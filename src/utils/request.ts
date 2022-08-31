@@ -2,7 +2,7 @@
  * @Author: Monve
  * @Date: 2021-09-26 18:11:06
  * @LastEditors: Monve
- * @LastEditTime: 2022-08-31 16:32:04
+ * @LastEditTime: 2022-08-31 16:36:24
  * @FilePath: /lazada-openapi/src/utils/request.ts
  */
 import axios, { AxiosRequestConfig, AxiosResponse, Method } from "axios";
@@ -13,7 +13,7 @@ import { BaseUrlKey } from "./const";
 export const axios_service = axios.create()
 
 export type ShopReq = { baseUrl_type: BaseUrlKey, access_token: string }
-type BaseRes = { code: string, request_id: string, message?: string }
+export type BaseRes = { code: string, request_id: string, message?: string }
 
 export type ApiMethod<T = any, R = any> = (
   data: T,
