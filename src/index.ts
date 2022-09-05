@@ -2,7 +2,7 @@
  * @Author: Monve
  * @Date: 2022-03-10 11:46:01
  * @LastEditors: Monve
- * @LastEditTime: 2022-08-31 16:18:13
+ * @LastEditTime: 2022-09-05 17:18:34
  * @FilePath: /lazada-openapi/src/index.ts
  */
 
@@ -13,6 +13,8 @@ import { ApiMethod, axios_service, Post, ShopReq } from "./utils/request"
 import { signRequest } from "./utils/sign"
 import * as FormData from 'form-data'
 import axios from "axios"
+import { OrderApi } from "./order"
+import { VoucherApi } from "./voucher"
 
 interface CONFIG { app_key: string | number, app_secret: string }
 
@@ -28,6 +30,8 @@ class LazadaOpenApi {
   private app_secret: string
   public chat = new ChatApi()
   public product = new ProductApi()
+  public order = new OrderApi()
+  public voucher = new VoucherApi()
   constructor() {
     axios_service.interceptors.request.use(
       (config) => {
