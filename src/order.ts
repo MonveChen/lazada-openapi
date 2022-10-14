@@ -2,7 +2,7 @@
  * @Author: Monve
  * @Date: 2022-09-05 15:37:13
  * @LastEditors: Monve
- * @LastEditTime: 2022-09-05 16:51:25
+ * @LastEditTime: 2022-10-14 17:22:11
  * @FilePath: /lazada-openapi/src/order.ts
  */
 import { ApiShopMethod, ExtraRes, Get } from "./utils/request"
@@ -22,7 +22,59 @@ type Address = {
   city: string
 }
 
+type Order = {
+  branch_number: string,
+  tax_code: string,
+  extra_attributes: string,
+  address_updated_at: string,
+  shipping_fee: string,
+  customer_first_name: string,
+  payment_method: string,
+  statuses: string[],
+  remarks: string,
+  order_number: string,
+  order_id: string,
+  voucher: string,
+  national_registration_number: string,
+  promised_shipping_times: string,
+  items_count: number,
+  voucher_platform: string,
+  voucher_seller: string,
+  created_at: string,
+  price: string,
+  address_billing: Address,
+  warehouse_code: string,
+  shipping_fee_original: string,
+  shipping_fee_discount_seller: string,
+  shipping_fee_discount_platform: string,
+  address_shipping: Address,
+  customer_last_name: string,
+  gift_option: string,
+  voucher_code: string,
+  updated_at: string,
+  delivery_info: string,
+  gift_message: string
+}
+
 export class OrderApi {
+  /**
+   * Use this API to get the list of items for a single order.
+   */
+  @Get({ url: '/order/get' })
+  get_order!: ApiShopMethod<
+    {
+      order_id: string
+    },
+    ExtraRes & {
+      data: {
+        countTotal: number,
+        count: number,
+        data: Order
+      }
+    }
+  >
+
+
   /**
    * Use this API to get the list of items for a range of orders1..
    * @param The maximum number of orders that can be returned. The supported maximum number is 100.
@@ -38,39 +90,7 @@ export class OrderApi {
       data: {
         countTotal: number,
         count: number,
-        orders: {
-          branch_number: string,
-          tax_code: string,
-          extra_attributes: string,
-          address_updated_at: string,
-          shipping_fee: string,
-          customer_first_name: string,
-          payment_method: string,
-          statuses: string[],
-          remarks: string,
-          order_number: string,
-          order_id: string,
-          voucher: string,
-          national_registration_number: string,
-          promised_shipping_times: string,
-          items_count: number,
-          voucher_platform: string,
-          voucher_seller: string,
-          created_at: string,
-          price: string,
-          address_billing: Address,
-          warehouse_code: string,
-          shipping_fee_original: string,
-          shipping_fee_discount_seller: string,
-          shipping_fee_discount_platform: string,
-          address_shipping: Address,
-          customer_last_name: string,
-          gift_option: string,
-          voucher_code: string,
-          updated_at: string,
-          delivery_info: string,
-          gift_message: string
-        }[]
+        orders: Order[]
       }
     }
   >
