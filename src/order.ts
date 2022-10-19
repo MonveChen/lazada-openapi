@@ -2,7 +2,7 @@
  * @Author: Monve
  * @Date: 2022-09-05 15:37:13
  * @LastEditors: Monve
- * @LastEditTime: 2022-10-14 17:22:11
+ * @LastEditTime: 2022-10-19 13:56:47
  * @FilePath: /lazada-openapi/src/order.ts
  */
 import { ApiShopMethod, ExtraRes, Get } from "./utils/request"
@@ -66,11 +66,7 @@ export class OrderApi {
       order_id: string
     },
     ExtraRes & {
-      data: {
-        countTotal: number,
-        count: number,
-        data: Order
-      }
+      data: Order
     }
   >
 
