@@ -2,7 +2,7 @@
  * @Author: Monve
  * @Date: 2022-03-10 11:46:01
  * @LastEditors: Monve
- * @LastEditTime: 2022-09-05 17:18:34
+ * @LastEditTime: 2022-11-22 10:38:01
  * @FilePath: /lazada-openapi/src/index.ts
  */
 
@@ -15,6 +15,8 @@ import * as FormData from 'form-data'
 import axios from "axios"
 import { OrderApi } from "./order"
 import { VoucherApi } from "./voucher"
+import { SellerApi } from "./seller"
+import { ReverseApi } from "./reverse"
 
 interface CONFIG { app_key: string | number, app_secret: string }
 
@@ -32,6 +34,8 @@ class LazadaOpenApi {
   public product = new ProductApi()
   public order = new OrderApi()
   public voucher = new VoucherApi()
+  public seller = new SellerApi()
+  public reverse = new ReverseApi()
   constructor() {
     axios_service.interceptors.request.use(
       (config) => {
