@@ -2,7 +2,7 @@
  * @Author: Monve
  * @Date: 2022-11-22 10:09:50
  * @LastEditors: Monve
- * @LastEditTime: 2022-11-22 14:45:51
+ * @LastEditTime: 2022-11-23 15:35:53
  * @FilePath: /lazada-openapi/src/reverse.ts
  */
 import { ApiShopMethod, ExtraRes, Get } from "./utils/request"
@@ -84,18 +84,20 @@ export class ReverseApi {
   getReverseOrdersForSeller!: ApiShopMethod<
     {
       page_size: number, page_no: number,
-      ofc_status_list?: string[], reverse_order_id?: string, trade_order_id?: number,
+      ofc_status_list?: string[], reverse_order_id?: number, trade_order_id?: number,
       reverse_status_list?: string[], return_to_type?: string, dispute_in_progress?: boolean,
       TradeOrderLineCreatedTimeRangeStart?: number, TradeOrderLineCreatedTimeRangeEnd?: number,
       ReverseOrderLineTimeRangeStart?: number, ReverseOrderLineTimeRangeEnd?: number,
       ReverseOrderLineModifiedTimeRangeStart?: number, ReverseOrderLineModifiedTimeRangeEnd?: number
     },
     ExtraRes & {
-      total: number	//The total number of data
-      items: Reverse[]	//Data list
-      page_no: number	//Page no
-      success: boolean	//Result
-      page_size: number	//Page size
+      result: {
+        total: number	//The total number of data
+        items: Reverse[]	//Data list
+        page_no: number	//Page no
+        success: boolean	//Result
+        page_size: number	//Page size
+      }
     }
   >
 

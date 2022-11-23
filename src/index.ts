@@ -2,7 +2,7 @@
  * @Author: Monve
  * @Date: 2022-03-10 11:46:01
  * @LastEditors: Monve
- * @LastEditTime: 2022-11-22 10:38:01
+ * @LastEditTime: 2022-11-23 15:12:13
  * @FilePath: /lazada-openapi/src/index.ts
  */
 
@@ -53,6 +53,13 @@ class LazadaOpenApi {
         const data = {
           ...system_params,
           ...(config.method === 'get' ? config.params : config.data)
+        }
+        if (config.method === 'get') {
+          Object.keys(data).forEach(key => {
+            if (Array.isArray(data[key])) {
+              data[key] = JSON.stringify(data[key])
+            }
+          })
         }
         const sign = signRequest(this.app_secret, config.url as string, data)
         config.method === 'get' ? config.params = { ...data, sign }
