@@ -2,7 +2,7 @@
  * @Author: Monve
  * @Date: 2022-11-22 10:09:50
  * @LastEditors: Monve
- * @LastEditTime: 2022-11-23 15:35:53
+ * @LastEditTime: 2022-11-28 15:08:00
  * @FilePath: /lazada-openapi/src/reverse.ts
  */
 import { ApiShopMethod, ExtraRes, Get } from "./utils/request"
@@ -90,7 +90,7 @@ export class ReverseApi {
       ReverseOrderLineTimeRangeStart?: number, ReverseOrderLineTimeRangeEnd?: number,
       ReverseOrderLineModifiedTimeRangeStart?: number, ReverseOrderLineModifiedTimeRangeEnd?: number
     },
-    ExtraRes & {
+    {
       result: {
         total: number	//The total number of data
         items: Reverse[]	//Data list
@@ -108,9 +108,8 @@ export class ReverseApi {
   getReverseOrderDetail!: ApiShopMethod<
     {
       reverse_order_id: number
-    },
-    ExtraRes & {
-      data: ReverseDetail[]	//Data list
+    }, {
+      data: ReverseDetail
     }
   >
 
@@ -128,8 +127,7 @@ export class ReverseApi {
       image_info?: {
         name: string, url: string
       }[]	//image_info
-    },
-    ExtraRes & {
+    }, {
       reverse_order_line: {
         reverse_order_line_id: number	//reverse order line id
         reason_source: string	//reason source
