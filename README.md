@@ -1,11 +1,11 @@
 # lazada-openapi
 
-A lazada openapi sdk, currently there is only sdk about im part
+A lazada openapi sdk
 
 #### Usage
 
 ```typescript
-import "base-class-fuction-extend" //import it first
+import lazada from 'lazada-openapi'
 
 lazada.setAppConfig({ app_key: 108334, app_secret: "ZKpigRItsXvnImXfLzuKliOTByAOUhsZ" })
 
