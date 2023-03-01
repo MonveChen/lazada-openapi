@@ -2,7 +2,7 @@
  * @Author: Monve
  * @Date: 2022-03-10 11:46:01
  * @LastEditors: Monve
- * @LastEditTime: 2022-12-06 10:37:34
+ * @LastEditTime: 2023-03-01 16:01:37
  * @FilePath: /lazada-openapi/src/index.ts
  */
 
@@ -18,6 +18,7 @@ import { VoucherApi } from "./voucher"
 import { SellerApi } from "./seller"
 import { ReverseApi } from "./reverse"
 import { ReviewApi } from "./review"
+import { LogisticApi } from "./logistic"
 
 interface CONFIG { app_key: string | number, app_secret: string }
 
@@ -38,6 +39,7 @@ class LazadaOpenApi {
   public seller = new SellerApi()
   public reverse = new ReverseApi()
   public review = new ReviewApi()
+  public logistic = new LogisticApi()
   constructor() {
     axios_service.interceptors.request.use(
       (config) => {
